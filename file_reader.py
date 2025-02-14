@@ -1,4 +1,5 @@
 import os
+import sys
 
 def open_file(filename):
     """Open contents of a file, return a buffer of content"""
@@ -12,10 +13,14 @@ def open_file(filename):
         pass
     return contents
 
+filepath = None
+try:
+    if len(sys.argv) > 1:
+        filepath = sys.argv[1] 
+
 line_buffer = 10 
 current_index = 0
-#contents = open_file("/home/kannonhoward/Code/Python/AC-Data/music.csv")
-contents = open_file("/home/kannonhoward/Code/Python/text_test.txt")
+contents = open_file(filepath)
 
 while (current_index < len(contents)):
     os.system('clear')
