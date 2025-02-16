@@ -26,8 +26,8 @@ def read_file(filepath):
             else:
                 print(f"{current_index+1} {contents[current_index]}")
                 current_index += 1
-        check = input("Press Enter to Continue or q o quit: ")
-        if check == 'q':
+        user_input = input("Press Enter to Continue or q to quit: ")
+        if user_input == 'q':
             break
 
 filepath = None
