@@ -6,7 +6,7 @@ def get_file_text(filename):
     contents = []
     try:
         with open(filename, "r") as file:
-            contents = file.read().splitlines()
+            contents = file.readlines()
             return contents
     except FileNotFoundError:
         print(f"{filename} Not Found")
