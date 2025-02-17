@@ -1,26 +1,31 @@
 import os
 import sys
 
-buffer_size = 1024
-
 def get_file_text(filename):
     """Open contents of a file, return a buffer of content"""
-    contents = ''
+    contents = []
     try:
         with open(filename, "r") as file:
-            while True:
-                buffer = file.read(buffer_size)
-                if not buffer:
-                    break
-                contents +=  buffer
+            contents = file.read().splitlines()
+            return contents
     except FileNotFoundError:
-        print("File Not Found")
-        pass
-    return contents
+        print(f"{filename} Not Found")
+        return None
 
-filepath = None
-if len(sys.argv) > 1:
-    filepath = sys.argv[1] 
-    get_file_text(filepath)
-else:
-    print("No File Input\n")
+def cycle_lines(content):
+    for i in content:
+        print(i)
+
+def main():
+    filepath = None
+
+    if len(sys.argv) > 1:
+        filepath = sys.argv[1] 
+
+        cycle_lines(get_file_text(filepath))
+    else:
+        print("No File Input\n")
+
+
+if __name__ == "__main__":
+    main()
