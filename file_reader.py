@@ -13,9 +13,13 @@ def get_file_text(filename):
         return None
 
 def cycle_lines(content):
-    for i in content:
-        print(i)
-
+    incr = 10
+    curr_pos = 0 
+    while input("Press Enter to Continue: ").lower() != "q":
+        for i in range(curr_pos, curr_pos+incr):
+            print(f"{content[i]}" )
+            curr_pos += incr
+        
 def main():
     filepath = None
 
@@ -25,7 +29,6 @@ def main():
         cycle_lines(get_file_text(filepath))
     else:
         print("No File Input\n")
-
 
 if __name__ == "__main__":
     main()
