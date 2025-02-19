@@ -17,15 +17,13 @@ def cycle_lines(content):
     curr_pos = 0 
     while input("Press Enter to Continue: ").lower() != "q":
         for i in range(curr_pos, curr_pos+incr):
-            print(f"{content[i]}" )
-            curr_pos += incr
+            print(f"{i} {content[i]}")
+        curr_pos += incr
         
 def main():
     filepath = None
-
     if len(sys.argv) > 1:
         filepath = sys.argv[1] 
-
         cycle_lines(get_file_text(filepath))
     else:
         print("No File Input\n")
