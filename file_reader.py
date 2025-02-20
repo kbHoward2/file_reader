@@ -3,7 +3,7 @@ import sys
 
 def get_file_text(filename):
     """Open contents of a file, return a buffer of content"""
-    contents = []
+    content = []
     try:
         with open(filename, "r") as file:
             contents = file.readlines()
