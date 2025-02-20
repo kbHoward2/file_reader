@@ -1,6 +1,8 @@
 import os
 import sys
 
+LINE_INCR = 10
+
 def get_file_text(filename):
     """Open contents of a file, return a buffer of content"""
     content = []
@@ -22,7 +24,7 @@ def cycle_lines(content):
     """
         Process lines read in by the file. Default increments each cycle by 10 lines.
     """
-    incr = 1000
+    incr = LINE_INCR
     curr_pos = 0 
 
     while input("Press Enter to Continue: ").lower() != "q":
