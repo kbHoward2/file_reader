@@ -31,7 +31,7 @@ def cycle_lines(content):
     
         incr = check_eof(curr_pos, incr, content)
         for i in range(curr_pos, curr_pos+incr):
-            print(f"{i} {content[i]}")
+            print(content[i])
         
         curr_pos += incr
         if curr_pos == len(content) - 1:
