@@ -11,17 +11,23 @@ def get_file_text(filename):
     except FileNotFoundError:
         print(f"'{filename}' not found.")
 
+def check_eof(curr_pos, incr, content):
+    """ This function prevents accessing indexes beyond a list's range."""
+    while (curr_pos + incr >= len(content)):
+        incr = int(incr / 2)
+
+    return incr
+
 def cycle_lines(content):
-    """Process lines read in by the file. Default increments each cycle by 10 lines."""
-    incr = 10
+    """
+        Process lines read in by the file. Default increments each cycle by 10 lines.
+    """
+    incr = 1000
     curr_pos = 0 
 
     while input("Press Enter to Continue: ").lower() != "q":
     
-        # This while loop prevents accessing indexes beyond the list range.
-        while (curr_pos + incr >= len(content)):
-            incr = int(incr / 2)
-        
+        incr = check_eof(curr_pos, incr, content)
         for i in range(curr_pos, curr_pos+incr):
             print(f"{i} {content[i]}")
         
