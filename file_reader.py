@@ -10,6 +10,7 @@ def get_file_text(filename):
             return contents
     except FileNotFoundError:
         print(f"'{filename}' not found.")
+        sys.exit(-1)
 
 def cycle_lines(content):
     """Process lines read in by the file. Default increments each cycle by 10 lines."""
@@ -37,6 +38,7 @@ def main():
         cycle_lines(get_file_text(filepath))
     else:
         print("No File Argument\n")
+        sys.exit(-1)
 
 if __name__ == "__main__":
     main()
