@@ -13,17 +13,22 @@ def get_file_text(filename):
         return None
 
 def cycle_lines(content):
-    incr = 1000
+    """Process lines read in by the file. Default increments each cycle by 10 lines."""
+    incr = 10
     curr_pos = 0 
+
     while input("Press Enter to Continue: ").lower() != "q":
+    
+        # This while loop prevents accessing indexes beyond the list range.
         while (curr_pos + incr >= len(content)):
             incr = int(incr / 2)
         
         for i in range(curr_pos, curr_pos+incr):
             print(f"{i} {content[i]}")
+        
         curr_pos += incr
         if curr_pos == len(content) - 1:
-            print(content[-1])
+            print(content[-1]) # Print the final line of the file.
             break
         
 def main():
